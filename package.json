@@ -10,7 +10,8 @@
     "format": "prettier --write .",
     "storybook": "node scripts/start-storybook.js",
     "typecheck": "npx tsc --noEmit",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "generate": "plop --plopfile internals/plopfile.js"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.25.9",
@@ -28,11 +29,13 @@
     "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
     "@typescript-eslint/parser": "^8.12.2",
+    "change-case": "^5.4.4",
     "eslint": "^9.13.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-storybook": "^0.10.1",
+    "plop": "^4.0.1",
     "prettier": "^3.3.3",
     "storybook": "^8.3.6",
     "turbo": "^2.2.3",
