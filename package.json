@@ -2,15 +2,41 @@
   "name": "my-turbo",
   "private": true,
   "scripts": {
+    "start:app": "node scripts/start-app.js",
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "storybook": "node scripts/start-storybook.js",
+    "typecheck": "npx tsc --noEmit",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
+    "@babel/eslint-parser": "^7.25.9",
+    "@chromatic-com/storybook": "^1.9.0",
+    "@storybook/addon-essentials": "^8.3.6",
+    "@storybook/addon-interactions": "^8.3.6",
+    "@storybook/addon-links": "^8.3.6",
+    "@storybook/addon-onboarding": "^8.3.6",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
+    "@storybook/blocks": "^8.3.6",
+    "@storybook/react": "^8.3.6",
+    "@storybook/react-webpack5": "^8.3.6",
+    "@storybook/test": "^8.3.6",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.12.2",
+    "@typescript-eslint/parser": "^8.12.2",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-storybook": "^0.10.1",
+    "prettier": "^3.3.3",
+    "storybook": "^8.3.6",
     "turbo": "^2.2.3",
-    "typescript": "5.5.4"
+    "typescript": "^5.6.3"
   },
   "engines": {
     "node": ">=18"

@@ -1,0 +1,27 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*]
+# Set the default charset
+charset = utf-8
+
+# Set the end of line character
+end_of_line = lf
+
+# Set the indent style (tab or space)
+indent_style = space
+
+# Set the number of spaces per indentation level
+indent_size = 2
+
+# Trim trailing whitespace
+trim_trailing_whitespace = true
+
+# Insert a newline at the end of the file
+insert_final_newline = true
+
+# Set specific formatting for JavaScript and TypeScript files
+[*.{js,jsx,ts,tsx}]
+indent_size = 2
