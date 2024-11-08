@@ -1,7 +1,7 @@
 // packages/my-component-library/src/CustomButton.stories.tsx
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
-import CustomButton, { CustomButtonProps } from '../components/button'; // Adjust the import path as necessary
+import CustomButton, { CustomButtonProps } from '.'; // Adjust the import path as necessary
 import { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
