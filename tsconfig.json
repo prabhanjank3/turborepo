@@ -6,12 +6,11 @@
       "jsx": "react-jsx",                    // Specify JSX code generation
       "strict": true,                        // Enable all strict type-checking options
       "esModuleInterop": true,               // Enables emit interoperability between CommonJS and ES Modules
-      "skipLibCheck": true,                  // Skip type checking of declaration files
       "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
-      "noUnusedLocals": false, // Disable unused variable checks
-      "noUnusedParameters": false // Disable unused function parameter checks
+      "noUnusedLocals": true, // Disable unused variable checks
+      "noUnusedParameters": true // Disable unused function parameter checks
     },
     "include": ["apps/**/*", "packages/**/*"], // Specify files to include
-    "exclude": ["node_modules", "**/*.spec.ts"] // Specify files to exclude
+    "exclude": ["node_modules", "**/*.spec.ts", "internals/**"] // Specify files to exclude
   }
   
