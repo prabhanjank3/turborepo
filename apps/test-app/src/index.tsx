@@ -1,9 +1,9 @@
 import React from 'react';
 import { createRoot, Container } from 'react-dom/client'; // Import createRoot
-import Component from '@achieve4sure/test-package';
+import MyComponent from '@achieve4sure/ui-mui';
 
 const App = () => {
-  return <Component />;
+  return <MyComponent onClick={() => {}} label={'Click'} variant="contained" />;
 };
 
 const rootElement = document.getElementById('root');
