@@ -1,11 +1,11 @@
 {
-    "name": "{{kebabCase name}}",
+    "name": "@achieve4sure/{{kebabCase name}}",
     "version": "0.1.0",
     "main": "src/index.js",
     "scripts": {
-        "start": "node index.js",
-        "build": "echo \"Building...\"",
-        "test": "jest"
+        "storybook": "storybook dev -p 6006",
+        "build": "tsc",
+        "build-storybook": "storybook build"
     },
     "devDependencies": {
         "jest": "^27.0.0",

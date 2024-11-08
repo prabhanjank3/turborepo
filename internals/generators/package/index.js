@@ -1,3 +1,4 @@
+const BASE_PACKAGE_PATH = '../packages';
 module.exports = function (plop) {
   plop.setGenerator('package', {
     description:
@@ -19,30 +20,40 @@ module.exports = function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'packages/{{kebabCase name}}/src/{{pascalCase name}}.tsx',
+        path: `${BASE_PACKAGE_PATH}/{{kebabCase name}}/src/{{pascalCase name}}.tsx`,
         templateFile: 'templates/componentTemplate.tsx.hbs',
       },
       {
         type: 'add',
-        path: 'packages/{{kebabCase name}}/src/{{pascalCase name}}.test.tsx',
+        path: `${BASE_PACKAGE_PATH}/{{kebabCase name}}/src/{{pascalCase name}}.test.tsx`,
         templateFile: 'templates/componentTemplate.test.tsx.hbs',
       },
       {
         type: 'add',
-        path: 'packages/{{kebabCase name}}/src/stories/{{pascalCase name}}.stories.tsx',
+        path: `${BASE_PACKAGE_PATH}/{{kebabCase name}}/src/stories/{{pascalCase name}}.stories.tsx`,
         templateFile: 'templates/componentTemplate.stories.tsx.hbs',
         skipIfExists: true,
         when: (answers) => answers.includeStorybook,
       },
       {
         type: 'add',
-        path: 'packages/{{kebabCase name}}/package.json',
+        path: `${BASE_PACKAGE_PATH}/{{kebabCase name}}/package.json`,
         templateFile: 'templates/packageJsonTemplate.json.hbs',
       },
       {
         type: 'add',
-        path: 'packages/{{kebabCase name}}/src/index.tsx',
+        path: `${BASE_PACKAGE_PATH}/{{kebabCase name}}/src/index.tsx`,
         templateFile: 'templates/indexTemplate.tsx.hbs',
+      },
+      {
+        type: 'add',
+        path: `${BASE_PACKAGE_PATH}/{{kebabCase name}}/.storybook/main.js`,
+        templateFile: 'templates/storybook.main.js.hbs',
+      },
+      {
+        type: 'add',
+        path: `${BASE_PACKAGE_PATH}/{{kebabCase name}}/.storybook/preview.js`,
+        templateFile: 'templates/storybook.preview.js.hbs',
       },
     ],
   });
