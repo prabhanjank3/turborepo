@@ -1,7 +1,7 @@
 /** @type {import('eslint').Linter.FlatConfig} */
 const config = [
   {
-    files: ['packages/**/*.tsx', 'apps/**/*.tsx'],
+    files: ['packages/**/*.tsx', 'packages/**/*.js', 'apps/**/*.tsx'],
     languageOptions: {
       parser: require('@typescript-eslint/parser'), // Use the TypeScript parser
       parserOptions: {
