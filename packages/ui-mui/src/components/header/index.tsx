@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 import './index.css';
@@ -23,18 +22,18 @@ export default function Navbar(props: NavbarProps) {
       }}
       className="navbar-container"
     >
-      <div
-        style={{
+      <Box
+        sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
         }}
       >
-        <div style={{ marginRight: 10 }}>
+        <Box sx={{ marginRight: 2 }}>
           <props.PORTALDATA.logo />
-        </div>
+        </Box>
 
-        <div onClick={() => {}}>
+        <Box onClick={() => {}}>
           <Typography
             sx={{
               fontSize: 'logo.fontSize',
@@ -47,18 +46,18 @@ export default function Navbar(props: NavbarProps) {
           <Typography sx={{ fontSize: '11px' }}>
             {props.PORTALDATA.subline}
           </Typography>
-        </div>
-      </div>
+        </Box>
+      </Box>
       {/* {true && <NavMenu menulist={props.Menudata} />} */}
-      <div style={{ marginLeft: 'auto' }}>
+      <Box sx={{ marginLeft: 'auto' }}>
         {true ? (
-          <div>Hello</div>
+          <Box>Heello</Box>
         ) : (
           <Link to={'/login'}>
             <Typography sx={{ color: 'secondary.main' }}>Login</Typography>
           </Link>
         )}
-      </div>
+      </Box>
     </Box>
   );
 }

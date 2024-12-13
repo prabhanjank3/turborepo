@@ -8,8 +8,6 @@
       "esModuleInterop": true,
       "skipLibCheck": true,               // Enables emit interoperability between CommonJS and ES Modules
       "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
-      "noUnusedLocals": false, // Disable unused variable checks
-      "noUnusedParameters": false // Disable unused function parameter checks
     },
     "include": ["apps/**/*", "packages/**/*"], // Specify files to include
     "exclude": ["node_modules", "**/*.spec.ts", "internals/**", "**/*.stories.tsx"] // Specify files to exclude
