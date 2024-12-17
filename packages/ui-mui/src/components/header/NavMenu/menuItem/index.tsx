@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 import '../index.css';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ export default function MenuItem({ item }: { item: NavmenuItemProps }) {
   return (
     <div className="menu-item">
       <Link to={item.url} style={{ textDecoration: 'none', color: 'inherit' }}>
-        <div className="menu-item-container">
+        <Box className="menu-item-container">
           <Typography
             sx={{
               color: 'primary.contrastText',
@@ -22,15 +22,15 @@ export default function MenuItem({ item }: { item: NavmenuItemProps }) {
             }}
             className="navbar-menu-item"
           >
-            {item.title}
+            {item.label}
           </Typography>
           {item?.child && <ExpandMore fontSize="small" />}
-        </div>
+        </Box>
       </Link>
       {item?.child ? (
-        <div
+        <Box
           className="menu-item-content"
-          style={{ backgroundColor: 'primary.dark' }}
+          sx={{ backgroundColor: 'primary.main' }}
         >
           {item.child.map((child) => {
             return (
@@ -51,13 +51,13 @@ export default function MenuItem({ item }: { item: NavmenuItemProps }) {
                       },
                     }}
                   >
-                    {child.title}
+                    {child.label}
                   </Typography>
                 </div>
               </Link>
             );
           })}
-        </div>
+        </Box>
       ) : (
         <></>
       )}
