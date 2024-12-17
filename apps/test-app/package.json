@@ -14,7 +14,6 @@
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "@achieve4sure/test-package": "1.0.0",
     "@achieve4sure/ui-mui": "1.0.0",
     "react-router-dom": "^6.0.0"
   },
