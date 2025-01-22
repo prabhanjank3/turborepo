@@ -1,5 +1,5 @@
 export interface NavmenuItemProps {
   url: string;
-  title: string;
+  label: string;
   child?: NavmenuItemProps[];
 }
