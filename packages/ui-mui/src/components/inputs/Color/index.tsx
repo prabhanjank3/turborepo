@@ -3,7 +3,7 @@
  * Color
  *
  */
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { Popover, Box } from '@mui/material';
 import { CompactPicker } from 'react-color';
 
@@ -120,10 +120,20 @@ const colors = [
   '#33691E',
 ];
 
-const ColorPicker = ({ name, color, onChange, faceComponent }) => {
+const ColorPicker = ({
+  name,
+  color,
+  onChange,
+  faceComponent,
+}: {
+  name: string;
+  color: string;
+  onChange: (A: string, B: string) => void;
+  faceComponent: ReactNode;
+}) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleClick = (event) => {
+  const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -131,7 +141,7 @@ const ColorPicker = ({ name, color, onChange, faceComponent }) => {
     setAnchorEl(null);
   };
 
-  const handleChangeComplete = (color) => {
+  const handleChangeComplete = (color: any) => {
     onChange(name, color.hex);
     setAnchorEl(null);
   };
