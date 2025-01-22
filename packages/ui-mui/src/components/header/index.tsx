@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import React from 'react';
 import './index.css';
 import { NavmenuItemProps } from './types';
-import NavMenu from './navMenu';
+import NavMenu from './NavMenu';
 
 interface PortalDataProps {
   logo: React.FC;
