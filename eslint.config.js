@@ -31,7 +31,7 @@ const config = [
     },
   },
   {
-    files: ['packages/ui-mui/.storybook/*.jsx', '*.js', '*.jsx'], // Match .js and .jsx files here
+    files: ['*.js', '*.jsx'], // Match .js and .jsx files here
     languageOptions: {
       parser: require('@babel/eslint-parser'), // Use Babel parser for .js and .jsx files
       parserOptions: {
