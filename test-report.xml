@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/table/__tests__/index.test.tsx">
+    <testCase name="&lt;Table  /&gt; should match snapshot" duration="51"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/footer/__tests__/index.test.tsx">
+    <testCase name="&lt;Footer  /&gt; should match snapshot" duration="32"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/button/index.test.tsx">
+    <testCase name="UiMui Component renders without crashing" duration="48"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/inputs/autoComplete/__tests__/index.test.tsx">
+    <testCase name="AutocompleteInputField renders with default props" duration="71"/>
+    <testCase name="AutocompleteInputField renders with a custom value" duration="11"/>
+    <testCase name="AutocompleteInputField calls onChange when a new option is selected" duration="75"/>
+    <testCase name="AutocompleteInputField sets default value on initial render if value is not provided" duration="9"/>
+    <testCase name="AutocompleteInputField updates value when valueProp changes" duration="12"/>
+    <testCase name="AutocompleteInputField renders the placeholder label if provided" duration="7"/>
+    <testCase name="AutocompleteInputField applies extra attributes to the autocomplete element" duration="13"/>
+    <testCase name="AutocompleteInputField displays error state when meta.isValid is false" duration="10"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/tabPanel/__tests__/index.test.tsx">
+    <testCase name="DynamicTabs should render correctly with initial state" duration="58"/>
+    <testCase name="DynamicTabs should switch tabs correctly" duration="12"/>
+    <testCase name="DynamicTabs should not render tabs or content when tabsInfo is empty" duration="4"/>
+    <testCase name="DynamicTabs should render custom tab content correctly" duration="13"/>
+    <testCase name="DynamicTabs should be responsive and adjust layout on resize" duration="11"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/modal/__tests__/index.test.tsx">
+    <testCase name="ReusableModal Component renders the trigger component" duration="46"/>
+    <testCase name="ReusableModal Component opens the modal when the trigger component is clicked" duration="66"/>
+    <testCase name="ReusableModal Component closes the modal when the close button is clicked" duration="0"/>
+    <testCase name="ReusableModal Component does not display modal content when initially rendered" duration="4"/>
+    <testCase name="ReusableModal Component modal content remains after reopening" duration="0"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/inputs/time/__tests__/index.test.tsx">
+    <testCase name="TimeFieldInput Component renders with default props" duration="116"/>
+    <testCase name="TimeFieldInput Component renders with custom value" duration="15"/>
+    <testCase name="TimeFieldInput Component renders with label" duration="19"/>
+    <testCase name="TimeFieldInput Component calls onChange with correct time value" duration="20"/>
+    <testCase name="TimeFieldInput Component applies custom extraAttributes" duration="13"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/inputs/text/__tests__/index.test.tsx">
+    <testCase name="TextFieldInput Component renders with default props" duration="83"/>
+    <testCase name="TextFieldInput Component renders with label" duration="7"/>
+    <testCase name="TextFieldInput Component renders with defaultValue" duration="13"/>
+    <testCase name="TextFieldInput Component renders with value and handles change" duration="13"/>
+    <testCase name="TextFieldInput Component renders with error state and displays error message in a paragraph" duration="7"/>
+    <testCase name="TextFieldInput Component renders without error when meta is valid" duration="14"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/popOver/__tests__/index.test.tsx">
+    <testCase name="PopoverComponent should open popover on face component click" duration="40"/>
+    <testCase name="PopoverComponent should render custom face component correctly" duration="11"/>
+    <testCase name="PopoverComponent should be responsive and adjust position on resize" duration="11"/>
+    <testCase name="PopoverComponent should integrate with other components correctly" duration="9"/>
+    <testCase name="PopoverComponent should not significantly impact performance" duration="2"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/inputs/dropdown/__tests__/index.test.tsx">
+    <testCase name="SelectField renders with default props" duration="31"/>
+    <testCase name="SelectField renders with a custom value" duration="8"/>
+    <testCase name="SelectField calls onChange when a new option is selected" duration="53"/>
+    <testCase name="SelectField sets default value on initial render if value is not provided" duration="6"/>
+    <testCase name="SelectField updates value when valueProp changes" duration="14"/>
+    <testCase name="SelectField handles no options provided gracefully" duration="7"/>
+    <testCase name="SelectField renders the placeholder if provided" duration="5"/>
+    <testCase name="SelectField applies extra attributes to the select element" duration="5"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/inputs/date/__tests__/index.test.tsx">
+    <testCase name="DateFieldInput renders the DatePicker with correct label" duration="65"/>
+    <testCase name="DateFieldInput displays the correct default value" duration="12"/>
+    <testCase name="DateFieldInput Changes date value and calls onChange with correct arguments when value changes" duration="263"/>
+    <testCase name="DateFieldInput displays the helper text when there are validation messages" duration="11"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/dist/components/button/index.test.js">
+    <testCase name="UiMui Component renders without crashing" duration="11"/>
+  </file>
+  <file path="/Users/pkulkarni5/my-turbo/packages/ui-mui/src/components/inputs/Color/__tests__/index.test.tsx">
+    <testCase name="ColorPicker renders without crashing" duration="8"/>
+    <testCase name="ColorPicker opens color picker on click" duration="107"/>
+    <testCase name="ColorPicker calls onChange with correct color" duration="155"/>
+  </file>
+</testExecutions>

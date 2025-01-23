@@ -22,17 +22,17 @@ const StyledTabs = styled(Tabs)({
   },
 });
 
-const DynamicTabs = ({ tabsInfo }) => {
+const DynamicTabs = ({ tabsInfo }: { tabsInfo: any }) => {
   const [activeTab, setActiveTab] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (event: any, newValue: any) => {
     setActiveTab(newValue);
   };
 
   return (
     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
       <StyledTabs value={activeTab} onChange={handleChange}>
-        {tabsInfo.map((tab, index) => (
+        {tabsInfo.map((tab: any, index: any) => (
           <Tab key={index} label={tab.label} />
         ))}
       </StyledTabs>

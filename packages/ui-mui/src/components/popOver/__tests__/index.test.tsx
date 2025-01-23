@@ -1,4 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import PopoverComponent from '..';
 
 describe('PopoverComponent', () => {
@@ -7,7 +8,7 @@ describe('PopoverComponent', () => {
 
   it('should open popover on face component click', () => {
     const { getByText } = render(
-      <PopoverComponent faceComponent={faceComponent} component={component} />,
+      <PopoverComponent faceComponent={faceComponent} component={component} />
     );
     fireEvent.click(getByText('Open Popover'));
     expect(getByText('Popover Content')).toBeInTheDocument();
@@ -19,7 +20,7 @@ describe('PopoverComponent', () => {
       <PopoverComponent
         faceComponent={<CustomFaceComponent />}
         component={component}
-      />,
+      />
     );
     expect(getByText('Custom Face Component')).toBeInTheDocument();
     fireEvent.click(getByText('Custom Face Component'));
@@ -28,14 +29,14 @@ describe('PopoverComponent', () => {
 
   it('should be responsive and adjust position on resize', () => {
     const { getByText, rerender } = render(
-      <PopoverComponent faceComponent={faceComponent} component={component} />,
+      <PopoverComponent faceComponent={faceComponent} component={component} />
     );
     fireEvent.click(getByText('Open Popover'));
     expect(getByText('Popover Content')).toBeInTheDocument();
 
     // Simulate window resize
     rerender(
-      <PopoverComponent faceComponent={faceComponent} component={component} />,
+      <PopoverComponent faceComponent={faceComponent} component={component} />
     );
     fireEvent.click(getByText('Open Popover'));
     expect(getByText('Popover Content')).toBeInTheDocument();
@@ -61,11 +62,11 @@ describe('PopoverComponent', () => {
 
   it('should not significantly impact performance', () => {
     const { rerender } = render(
-      <PopoverComponent faceComponent={faceComponent} component={component} />,
+      <PopoverComponent faceComponent={faceComponent} component={component} />
     );
     const initialRenderTime = performance.now();
     rerender(
-      <PopoverComponent faceComponent={faceComponent} component={component} />,
+      <PopoverComponent faceComponent={faceComponent} component={component} />
     );
     const secondRenderTime = performance.now();
     expect(secondRenderTime - initialRenderTime).toBeLessThan(100); // Threshold for acceptable performance
