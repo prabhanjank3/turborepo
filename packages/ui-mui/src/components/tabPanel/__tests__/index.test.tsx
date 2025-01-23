@@ -1,4 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import DynamicTabs from '..';
 
 describe('DynamicTabs', () => {
@@ -35,7 +36,7 @@ describe('DynamicTabs', () => {
       { label: 'Tab 3', component: <div>Content of Tab 3</div> },
     ];
     const { getByText } = render(
-      <DynamicTabs tabsInfo={tabsInfoWithCustomContent} />,
+      <DynamicTabs tabsInfo={tabsInfoWithCustomContent} />
     );
     fireEvent.click(getByText('Tab 2'));
     expect(getByText('Tab 2')).toBeInTheDocument();

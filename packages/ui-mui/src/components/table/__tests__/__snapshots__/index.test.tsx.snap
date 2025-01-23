@@ -1,0 +1,206 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table  /> should match snapshot 1`] = `
+<div
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-y2ff7i-MuiPaper-root-MuiTableContainer-root"
+  style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+>
+  <table
+    aria-label="customized table"
+    class="MuiTable-root css-vf0yke-MuiTable-root"
+  >
+    <thead
+      class="MuiTableHead-root css-1a7iywq-MuiTableHead-root"
+    >
+      <tr
+        class="MuiTableRow-root MuiTableRow-head css-1xtozoh-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1mauqrt-MuiTableCell-root"
+          scope="col"
+        >
+          Dessert (100g serving)
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1iefaka-MuiTableCell-root"
+          scope="col"
+        >
+          Calories
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1iefaka-MuiTableCell-root"
+          scope="col"
+        >
+          Fat (g)
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1iefaka-MuiTableCell-root"
+          scope="col"
+        >
+          Carbs (g)
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1iefaka-MuiTableCell-root"
+          scope="col"
+        >
+          Protein (g)
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      class="MuiTableBody-root css-gmh7jj-MuiTableBody-root"
+    >
+      <tr
+        class="MuiTableRow-root css-17e8nb1-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1j3gxal-MuiTableCell-root"
+          scope="row"
+        >
+          Frozen yoghurt
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          159
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          6
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          24
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          4
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root css-17e8nb1-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1j3gxal-MuiTableCell-root"
+          scope="row"
+        >
+          Ice cream sandwich
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          237
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          9
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          37
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          4.3
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root css-17e8nb1-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1j3gxal-MuiTableCell-root"
+          scope="row"
+        >
+          Eclair
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          262
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          16
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          24
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          6
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root css-17e8nb1-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1j3gxal-MuiTableCell-root"
+          scope="row"
+        >
+          Cupcake
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          305
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          3.7
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          67
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          4.3
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root css-17e8nb1-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1j3gxal-MuiTableCell-root"
+          scope="row"
+        >
+          Gingerbread
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          356
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          16
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          49
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-14qca7x-MuiTableCell-root"
+        >
+          3.9
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 
-import { Table } from '..';
+import Table from '..';
 
 describe('<Table  />', () => {
   it('should match snapshot', () => {
