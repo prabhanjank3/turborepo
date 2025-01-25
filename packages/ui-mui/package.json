@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "build": "tsc",
+    "build": "tsc && copyfiles -u 1 'src/**/*.css' dist/",
     "build-storybook": "storybook build"
   },
   "devDependencies": {
