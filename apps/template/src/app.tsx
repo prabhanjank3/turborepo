@@ -1,12 +1,15 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import DefaultLayout from './layouts/default';
 import Hello from './components/hello';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1>Welcome to React</h1>
-      <Hello />
-    </div>
+    <Routes>
+      <Route path="/" element={<DefaultLayout />}>
+        <Route path="" element={<Hello />} />
+      </Route>
+    </Routes>
   );
 };
 

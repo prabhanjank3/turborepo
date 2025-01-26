@@ -1,27 +1,25 @@
 import React from 'react';
-import { CustomButton } from '@achieve4sure/ui-mui';
-import { AcUnitOutlined } from '@mui/icons-material';
-import Avatar from '@mui/material/Avatar';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  increment,
+  decrement,
+  incrementByAmount,
+} from '../store/localSlices/counterSlice'; // Adjust path
 
-const Hello: React.FC = () => {
+const Counter = () => {
+  const dispatch = useDispatch();
+  const count = useSelector((state: any) => state.counter.value); // Replace `any` with `RootState` if using TypeScript
+
   return (
-    <CustomButton label="Click" onClick={() => {}} />
-    // <Navbar
-    //   appInfo={{
-    //     logo: () => <AcUnitOutlined fontSize="large" />, // Mock logo component
-    //     name: 'My Portal',
-    //     subLine: 'The best portal ever',
-    //   }}
-    //   menuItems={[
-    //     { url: '', label: 'Daddy', child: [{ url: '', label: 'Son' }] },
-    //   ]}
-    //   UserControls={() => (
-    //     <Avatar sx={{ bgcolor: 'secondary.main', fontSize: 'medium' }}>
-    //       OP
-    //     </Avatar>
-    //   )}
-    // />
+    <div>
+      <h1>Counter: {count}</h1>
+      <button onClick={() => dispatch(increment())}>Increment</button>
+      <button onClick={() => dispatch(decrement())}>Decrement</button>
+      <button onClick={() => dispatch(incrementByAmount(5))}>
+        Increment by 5
+      </button>
+    </div>
   );
 };
 
-export default Hello;
+export default Counter;

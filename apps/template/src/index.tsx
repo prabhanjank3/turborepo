@@ -1,6 +1,6 @@
+import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
-import { BrowserRouter } from 'react-router-dom';
 import { theme as muiTheme } from './theme';
 import ReactDOM from 'react-dom';
 import { store } from './store';
