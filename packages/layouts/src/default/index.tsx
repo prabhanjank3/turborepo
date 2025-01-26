@@ -15,11 +15,11 @@ export default function DefaultLayout({
 }: DefaultLayoutProps) {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      {/* {Navbar} */}
-      {/* <Box className="main-content" sx={{ flexGrow: 1 }}>
+      {Navbar}
+      <Box className="main-content" sx={{ flexGrow: 1 }}>
         {children || <Outlet />}
-      </Box> */}
-      {/* {Footer} */}
+      </Box>
+      {Footer}
     </Box>
   );
 }

@@ -1,126 +1,139 @@
-/* eslint-disable no-unused-vars */
-/**
- *
- * Sidebar
- *
- */
+import React, { ReactNode, useState } from 'react';
 import {
-  Avatar,
   Box,
-  Grid,
+  Drawer,
   List,
   ListItem,
-  Typography,
+  ListItemIcon,
+  ListItemText,
+  Collapse,
   useTheme,
 } from '@mui/material';
-import * as React from 'react';
-import { useState } from 'react';
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
-// Reusable Sidebar Component
-const Sidebar = ({
-  menuItems,
-  avatar,
-  name,
-  view,
-  setView,
-}: {
-  menuItems: Array<{
-    label: string;
-    action: () => void;
-    icon: React.ReactNode;
-    key: string;
-  }>;
-  avatar: string;
-  name: string;
-  view: string;
-  setView: React.Dispatch<React.SetStateAction<string>>;
-}) => {
+export interface SidebarItem {
+  icon?: ReactNode;
+  label: string;
+  component?: ReactNode; // The component to render when the item is clicked
+  onClick?: () => void; // Additional optional click handler
+  children?: SidebarItem[]; // Child menu items
+}
+
+export interface SidebarLayoutProps {
+  sidebarItems: SidebarItem[]; // Items to be rendered in the sidebar
+  defaultComponent?: ReactNode; // Default component to show when no item is selected
+  drawerWidth?: number; // Width of the sidebar (default: 240px)
+}
+
+export default function SidebarLayout({
+  sidebarItems,
+  defaultComponent,
+  drawerWidth = 240,
+}: SidebarLayoutProps) {
+  const [activeComponent, setActiveComponent] =
+    useState<ReactNode>(defaultComponent);
+  const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
+  const [activeIndex, setActiveIndex] = useState<string | null>(null);
   const theme = useTheme();
+
+  const handleItemClick = (item: SidebarItem, index: string) => {
+    setActiveIndex(index);
+    if (item.component) {
+      setActiveComponent(item.component);
+    }
+    if (item.onClick) {
+      item.onClick();
+    }
+  };
+
+  const handleMenuToggle = (index: string) => {
+    setOpenMenus((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
+
+  const renderSidebarItems = (
+    items: SidebarItem[],
+    parentIndex = '',
+    level = 0
+  ) => (
+    <List>
+      {items.map((item, index) => {
+        const currentIndex = parentIndex
+          ? `${parentIndex}-${index}`
+          : `${index}`;
+        const hasChildren = item.children && item.children.length > 0;
+
+        return (
+          <React.Fragment key={currentIndex}>
+            <ListItem
+              onClick={() => {
+                if (hasChildren) {
+                  handleMenuToggle(currentIndex);
+                } else {
+                  handleItemClick(item, currentIndex);
+                }
+              }}
+              sx={{
+                pl: 2 + level * 2, // Adjust padding-left based on the nesting level
+                color:
+                  activeIndex === currentIndex
+                    ? theme.palette.secondary.main
+                    : theme.palette.primary.contrastText,
+              }}
+            >
+              {item.icon && (
+                <ListItemIcon
+                  sx={{
+                    color:
+                      activeIndex === currentIndex
+                        ? theme.palette.secondary.main
+                        : theme.palette.primary.contrastText,
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+              )}
+              <ListItemText primary={item.label} />
+              {hasChildren &&
+                (openMenus[currentIndex] ? <ExpandLess /> : <ExpandMore />)}
+            </ListItem>
+            {hasChildren && (
+              <Collapse
+                in={openMenus[currentIndex]}
+                timeout="auto"
+                unmountOnExit
+              >
+                {renderSidebarItems(item.children!, currentIndex, level + 1)}
+              </Collapse>
+            )}
+          </React.Fragment>
+        );
+      })}
+    </List>
+  );
+
   return (
-    <Grid
-      item
-      xs={3}
-      lg={2}
-      sx={{
-        borderRight: '1px solid #ccc',
-        padding: '16px',
-        minHeight: '100vh',
-        backgroundColor: '#F5F5F5',
-      }}
-    >
-      <Box
+    <Box sx={{ display: 'flex' }}>
+      {/* Sidebar */}
+      <Drawer
+        variant="permanent"
         sx={{
-          display: 'flex',
-          alignItems: 'center',
-          backgroundColor: '#ECECEC',
-          padding: 1,
+          width: drawerWidth,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.primary.contrastText,
+          },
         }}
       >
-        <Avatar
-          sx={{
-            mr: 2,
-            backgroundColor: '#679F37',
-            width: 34,
-            height: 34,
-            fontSize: '14px',
-          }}
-        >
-          {avatar}
-        </Avatar>
-        <Typography
-          variant="h6"
-          sx={{ fontFamily: theme.typography.body2.fontFamily }}
-        >
-          {name}
-        </Typography>
+        {renderSidebarItems(sidebarItems)}
+      </Drawer>
+
+      {/* Main Content */}
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        {activeComponent}
       </Box>
-      <List sx={{ fontFamily: theme.typography.body2.fontFamily }}>
-        {menuItems.map((item, index) => (
-          <ListItem
-            key={index}
-            onClick={item.action}
-            sx={{ color: item.key === view ? 'secondary.main' : '' }}
-          >
-            <Box sx={{ mr: 2 }}>{item.icon}</Box>
-            {item.label}
-          </ListItem>
-        ))}
-      </List>
-    </Grid>
+    </Box>
   );
-};
-
-// Reusable Layout Component
-const SidebarLayout = ({ views }: { views: any }) => {
-  const [view, setView] = useState('dashboard');
-
-  const menuItems = Object.keys(views).map((itemKey) => {
-    return {
-      key: itemKey,
-      label: views[itemKey].label,
-      action: () => {
-        setView(itemKey);
-      },
-      icon: views[itemKey].icon,
-    };
-  });
-
-  return (
-    <Grid container sx={{ alignItems: 'stretch' }}>
-      <Sidebar
-        menuItems={menuItems}
-        view={view}
-        setView={setView}
-        avatar="OP" // You can pass dynamic avatar content
-        name="Prabhanjan Kulkarni" // You can pass dynamic name
-      />
-      {views.length > 0 && (
-        <Grid item xs={9} lg={10} style={{ padding: '16px' }}>
-          {views[view]['component']} {/* Dynamically render the view */}
-        </Grid>
-      )}
-    </Grid>
-  );
-};
-
-export default SidebarLayout;
+}
