@@ -8,21 +8,26 @@ import {
   ListItemText,
   Collapse,
   useTheme,
+  useMediaQuery,
+  IconButton,
+  AppBar,
+  Toolbar,
+  Typography,
 } from '@mui/material';
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import { Menu as MenuIcon, ExpandLess, ExpandMore } from '@mui/icons-material';
 
 export interface SidebarItem {
   icon?: ReactNode;
   label: string;
-  component?: ReactNode; // The component to render when the item is clicked
-  onClick?: () => void; // Additional optional click handler
-  children?: SidebarItem[]; // Child menu items
+  component?: ReactNode;
+  onClick?: () => void;
+  children?: SidebarItem[];
 }
 
 export interface SidebarLayoutProps {
-  sidebarItems: SidebarItem[]; // Items to be rendered in the sidebar
-  defaultComponent?: ReactNode; // Default component to show when no item is selected
-  drawerWidth?: number; // Width of the sidebar (default: 240px)
+  sidebarItems: SidebarItem[];
+  defaultComponent?: ReactNode;
+  drawerWidth?: number;
 }
 
 export default function SidebarLayout({
@@ -34,7 +39,9 @@ export default function SidebarLayout({
     useState<ReactNode>(defaultComponent);
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
   const [activeIndex, setActiveIndex] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleItemClick = (item: SidebarItem, index: string) => {
     setActiveIndex(index);
@@ -43,6 +50,9 @@ export default function SidebarLayout({
     }
     if (item.onClick) {
       item.onClick();
+    }
+    if (isMobile) {
+      setMobileOpen(false); // Close the drawer on mobile after selection
     }
   };
 
@@ -55,7 +65,7 @@ export default function SidebarLayout({
     parentIndex = '',
     level = 0
   ) => (
-    <List>
+    <List sx={{ mt: isMobile && !parentIndex ? 8 : 0 }}>
       {items.map((item, index) => {
         const currentIndex = parentIndex
           ? `${parentIndex}-${index}`
@@ -65,19 +75,24 @@ export default function SidebarLayout({
         return (
           <React.Fragment key={currentIndex}>
             <ListItem
-              onClick={() => {
-                if (hasChildren) {
-                  handleMenuToggle(currentIndex);
-                } else {
-                  handleItemClick(item, currentIndex);
-                }
-              }}
+              onClick={() =>
+                hasChildren
+                  ? handleMenuToggle(currentIndex)
+                  : handleItemClick(item, currentIndex)
+              }
               sx={{
-                pl: 2 + level * 2, // Adjust padding-left based on the nesting level
+                pl: 2 + level * 2,
                 color:
                   activeIndex === currentIndex
                     ? theme.palette.secondary.main
                     : theme.palette.primary.contrastText,
+                backgroundColor:
+                  activeIndex === currentIndex
+                    ? theme.palette.action.selected
+                    : 'transparent',
+                '&:hover': {
+                  backgroundColor: theme.palette.action.hover,
+                },
               }}
             >
               {item.icon && (
@@ -111,11 +126,33 @@ export default function SidebarLayout({
     </List>
   );
 
+  const drawerContent = renderSidebarItems(sidebarItems);
+
   return (
     <Box sx={{ display: 'flex' }}>
+      {isMobile && (
+        <AppBar position="fixed" sx={{ zIndex: theme.zIndex.drawer + 1 }}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              edge="start"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap>
+              App Title
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      )}
+
       {/* Sidebar */}
       <Drawer
-        variant="permanent"
+        variant={isMobile ? 'temporary' : 'permanent'}
+        open={mobileOpen}
+        onClose={() => setMobileOpen(false)}
+        ModalProps={{ keepMounted: true }}
         sx={{
           width: drawerWidth,
           flexShrink: 0,
@@ -127,11 +164,22 @@ export default function SidebarLayout({
           },
         }}
       >
-        {renderSidebarItems(sidebarItems)}
+        {drawerContent}
       </Drawer>
 
       {/* Main Content */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          mt: isMobile ? 8 : 0, // Ensure that main content is pushed down by the app bar on mobile
+          minHeight: '100vh',
+          display: 'flex', // Make sure to allow the content to stretch
+          flexDirection: 'column', // Keep content properly aligned vertically
+        }}
+      >
+        {/* Always render activeComponent */}
         {activeComponent}
       </Box>
     </Box>
