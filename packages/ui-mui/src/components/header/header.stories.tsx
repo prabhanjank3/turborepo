@@ -8,8 +8,8 @@ import Avatar from '@mui/material/Avatar';
 // Mock data for the PORTALDATA
 const mockPortalData = {
   logo: <AcUnitOutlined fontSize="large" />, // Mock logo component
-  name: 'My Portal',
-  subLine: 'The best portal ever',
+  name: 'Development',
+  subLine: 'Digital Platform',
 };
 
 // Base arguments for all stories

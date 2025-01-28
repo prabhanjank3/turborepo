@@ -115,10 +115,14 @@ const Navbar: React.FC<NavbarProps> = ({
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <Box>{appInfo.logo}</Box>
           <Box sx={{ mr: 3, display: { xs: 'none', sm: 'block' } }}>
-            <Typography variant="h4" sx={{ fontWeight: 400 }}>
+            <Typography variant="body1" sx={{ fontSize: 24 }}>
               {appInfo.name}
             </Typography>
-            <Typography variant="body1">{appInfo.subLine}</Typography>
+            <Box sx={{ display: 'grid', justifyContent: 'center' }}>
+              <Typography variant="body2" sx={{ fontSize: 12, mr: 'auto' }}>
+                {appInfo.subLine}
+              </Typography>
+            </Box>
           </Box>
 
           <Box
@@ -139,7 +143,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
                     {/* Show expand icon if item has children */}
                     {item.child && (
-                      <ListItemIcon sx={{ color: 'white' }}>
+                      <ListItemIcon sx={{ color: 'white', minWidth: '0px' }}>
                         {openMenu === item.label ? (
                           <ExpandLess />
                         ) : (
