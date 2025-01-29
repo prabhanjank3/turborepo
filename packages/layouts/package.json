@@ -1,0 +1,20 @@
+{
+  "name": "@achieve4sure/layouts",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build": "tsc && copyfiles -u 1 'src/**/*.css' dist/",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.4.2",
+    "@storybook/addon-links": "^8.4.2",
+    "@storybook/react": "^8.4.2",
+    "@testing-library/react": "^12.0.0",
+    "@types/react-color": "^3.0.13",
+    "@typescript-eslint/typescript-estree": "^latest-version",
+    "jest": "^27.0.0"
+  },
+  "dependencies": {}
+}
