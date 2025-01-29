@@ -2,7 +2,7 @@ import React from 'react';
 import { StoryObj, Meta } from '@storybook/react';
 import DefaultLayout from './index'; // Adjust the path as needed
 import { Navbar, Footer } from '@achieve4sure/ui-mui';
-import { AcUnitOutlined } from '@mui/icons-material';
+import { AcUnitOutlined, AvTimer } from '@mui/icons-material';
 import { MemoryRouter } from 'react-router-dom'; // Required for routing context
 
 // Base args for the DefaultLayout
@@ -10,11 +10,12 @@ const baseArgs = {
   Navbar: (
     <Navbar
       appInfo={{
-        logo: () => <AcUnitOutlined fontSize="large" />,
+        logo: <AcUnitOutlined fontSize="large" />,
         name: 'SAMPLE',
         subLine: 'Digital Platform',
       }}
       menuItems={[]}
+      UserControls={<AvTimer />}
     />
   ),
   Footer: <Footer />,
@@ -68,14 +69,19 @@ export const CustomNavbar: Story = {
     Navbar: (
       <Navbar
         appInfo={{
-          logo: () => <AcUnitOutlined fontSize="large" />,
+          logo: <AcUnitOutlined fontSize="large" />,
           name: 'Custom App',
           subLine: 'Built with Love',
         }}
         menuItems={[
           { label: 'Home', url: '/' },
-          { label: 'About', url: '/about' },
+          {
+            label: 'About',
+            url: '/about',
+            child: [{ label: 'Company', url: '/' }],
+          },
         ]}
+        UserControls={<AvTimer />}
       />
     ),
   },
