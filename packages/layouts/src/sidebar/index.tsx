@@ -28,12 +28,18 @@ export interface SidebarLayoutProps {
   sidebarItems: SidebarItem[];
   defaultComponent?: ReactNode;
   drawerWidth?: number;
+  appInfo: {
+    logo: ReactNode;
+    name: string;
+    subLine: string;
+  };
 }
 
 export default function SidebarLayout({
   sidebarItems,
   defaultComponent,
   drawerWidth = 240,
+  appInfo,
 }: SidebarLayoutProps) {
   const [activeComponent, setActiveComponent] =
     useState<ReactNode>(defaultComponent);
@@ -140,8 +146,8 @@ export default function SidebarLayout({
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap>
-              App Title
+            <Typography sx={{ fontSize: 25, mx: 'auto' }} noWrap>
+              {appInfo.name}
             </Typography>
           </Toolbar>
         </AppBar>
@@ -164,6 +170,29 @@ export default function SidebarLayout({
           },
         }}
       >
+        {!isMobile && (
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
+              mx: 'auto',
+              my: 2,
+            }}
+          >
+            <Box>{appInfo.logo}</Box>
+            <Box sx={{ mr: 3, display: { xs: 'none', sm: 'block' } }}>
+              <Typography variant="body1" sx={{ fontSize: 24 }}>
+                {appInfo.name}
+              </Typography>
+              <Box sx={{ display: 'grid', justifyContent: 'center' }}>
+                <Typography variant="body2" sx={{ fontSize: 12, mr: 'auto' }}>
+                  {appInfo.subLine}
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+        )}
         {drawerContent}
       </Drawer>
 

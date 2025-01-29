@@ -1,7 +1,13 @@
 import React from 'react';
 import SidebarLayout, { SidebarItem, SidebarLayoutProps } from './index';
 import { StoryObj, Meta } from '@storybook/react';
-import { Home, Settings, Info, AccountCircle } from '@mui/icons-material';
+import {
+  Home,
+  Settings,
+  Info,
+  AccountCircle,
+  AcUnitOutlined,
+} from '@mui/icons-material';
 
 // Example components for rendering
 const HomeComponent = () => <div>Welcome to the Home Page</div>;
@@ -31,6 +37,11 @@ const baseArgs: SidebarLayoutProps = {
   sidebarItems,
   defaultComponent: <HomeComponent />,
   drawerWidth: 240,
+  appInfo: {
+    logo: <AcUnitOutlined fontSize="large" />, // Mock logo component
+    name: 'Development',
+    subLine: 'Digital Platform',
+  },
 };
 
 // Storybook configuration
