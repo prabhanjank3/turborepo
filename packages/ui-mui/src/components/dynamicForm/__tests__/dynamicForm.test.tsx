@@ -1,6 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import DynamicForm from '..'; // Adjust the import path accordingly
 import '@testing-library/jest-dom';
+import { FormConfig } from '../types/formConfig';
 
 // Mock fetch options for the autocomplete field
 const mockFetchOptions = jest.fn().mockResolvedValue([
@@ -9,7 +10,7 @@ const mockFetchOptions = jest.fn().mockResolvedValue([
 ]);
 
 // Define the formConfig for testing
-const formConfig = {
+const formConfig: FormConfig = {
   fields: [
     {
       type: 'text',

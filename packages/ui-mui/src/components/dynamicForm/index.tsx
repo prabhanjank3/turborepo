@@ -23,6 +23,8 @@ import {
   SwitchProps,
   TextFieldProps,
   Grid,
+  Typography,
+  Button,
 } from '@mui/material';
 import dayjs, { Dayjs } from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -33,60 +35,8 @@ import {
   TimePicker,
   TimePickerProps,
 } from '@mui/x-date-pickers';
-
-type Field = {
-  type:
-    | 'text'
-    | 'select'
-    | 'autocomplete'
-    | 'radio'
-    | 'toggle'
-    | 'file'
-    | 'color'
-    | 'date'
-    | 'time';
-  name: string;
-  label?: string;
-  placeholder?: string;
-  defaultValue?: any;
-  options?: Array<{ label: string; value: any }>; // For select, autocomplete, radio
-  validation?: {
-    required?: boolean;
-    min?: number;
-    max?: number;
-    pattern?: RegExp;
-    customValidator?: (value: any) => string | undefined;
-  };
-  disabled?: boolean;
-  hidden?: boolean;
-  gridProps?: {
-    xs?: number;
-    sm?: number;
-    md?: number;
-    lg?: number;
-    xl?: number;
-  };
-  // Field-specific properties
-  freeSolo?: boolean; // For autocomplete
-  multiple?: boolean; // For select, autocomplete
-  accept?: string; // For file
-  format?: string; // For date, time
-  props?:
-    | TextFieldProps
-    | SelectProps
-    | AutocompleteProps<any, boolean, boolean, boolean>
-    | RadioGroupProps
-    | SwitchProps
-    | FormControlProps
-    | InputLabelProps
-    | FormHelperTextProps
-    | MenuItemProps
-    | FormControlLabelProps
-    | RadioProps
-    | DatePickerProps<any>
-    | TimePickerProps<any>; // Props for the MUI component
-  fetchOptions?: () => Promise<Array<{ label: string; value: any }>>; // For dynamic autocomplete options
-};
+import { Field } from './types/field';
+import { FormConfig } from './types/formConfig';
 
 const renderField = (
   field: Field,
@@ -347,7 +297,6 @@ const renderField = (
   }
 };
 
-// @ts-ignore
 const DynamicForm: React.FC<{ config: FormConfig }> = ({ config }) => {
   const [formValues, setFormValues] = React.useState<Record<string, any>>({});
   const [errors, setErrors] = React.useState<Record<string, string>>({});
@@ -363,7 +312,17 @@ const DynamicForm: React.FC<{ config: FormConfig }> = ({ config }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Grid container spacing={2}>
-        {config.fields.map((field: any) => (
+        {/* Render form title if provided */}
+        {config.title && (
+          <Grid item xs={12}>
+            <Typography sx={{ fontSize: '2rem' }} gutterBottom>
+              {config.title}
+            </Typography>
+          </Grid>
+        )}
+
+        {/* Render form fields */}
+        {config.fields.map((field) => (
           <Grid item key={field.name} {...field.gridProps}>
             {renderField(
               field,
@@ -373,6 +332,19 @@ const DynamicForm: React.FC<{ config: FormConfig }> = ({ config }) => {
             )}
           </Grid>
         ))}
+
+        {/* Render form controls if useControls is true */}
+        {config.useControls && (
+          <Grid item xs={12}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={config.handleSubmit}
+            >
+              Submit
+            </Button>
+          </Grid>
+        )}
       </Grid>
     </LocalizationProvider>
   );

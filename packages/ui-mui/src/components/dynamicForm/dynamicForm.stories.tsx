@@ -1,5 +1,6 @@
 import DynamicForm from './index'; // Adjust the import path as necessary
 import { StoryObj, Meta } from '@storybook/react';
+import { FormConfig } from './types/formConfig';
 
 export default {
   title: 'Components/DynamicForm',
@@ -8,7 +9,9 @@ export default {
 
 type Story = StoryObj<typeof DynamicForm>;
 
-const formConfig = {
+const formConfig: FormConfig = {
+  title: 'New User',
+  useControls: true,
   fields: [
     {
       type: 'text',
