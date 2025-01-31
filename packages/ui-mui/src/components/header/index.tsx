@@ -12,8 +12,7 @@ import {
   Drawer,
 } from '@mui/material';
 import { Menu as MenuIcon, ExpandMore, ExpandLess } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
-import styled from '@emotion/styled';
+
 /**
  * Navbar component for displaying application logo, name, menu items, and user controls.
  *
@@ -63,12 +62,6 @@ export interface NavbarProps {
  * @param {NavbarProps} props - Props for rendering the Navbar.
  * @returns {JSX.Element} The rendered Navbar component.
  */
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  &:hover {
-    color: 'secondary.main';
-  }
-`;
 const Navbar: React.FC<NavbarProps> = ({
   appInfo,
   menuItems,
@@ -120,19 +113,18 @@ const Navbar: React.FC<NavbarProps> = ({
       >
         {/* Left side - Logo and app name */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <StyledLink to={'/'}>
-            <Box>{appInfo.logo}</Box>
-            <Box sx={{ mr: 3, display: { xs: 'none', sm: 'block' } }}>
-              <Typography variant="body1" sx={{ fontSize: 24 }}>
-                {appInfo.name}
+          <Box>{appInfo.logo}</Box>
+          <Box sx={{ mr: 3, display: { xs: 'none', sm: 'block' } }}>
+            <Typography variant="body1" sx={{ fontSize: 24 }}>
+              {appInfo.name}
+            </Typography>
+            <Box sx={{ display: 'grid', justifyContent: 'center' }}>
+              <Typography variant="body2" sx={{ fontSize: 12, mr: 'auto' }}>
+                {appInfo.subLine}
               </Typography>
-              <Box sx={{ display: 'grid', justifyContent: 'center' }}>
-                <Typography variant="body2" sx={{ fontSize: 12, mr: 'auto' }}>
-                  {appInfo.subLine}
-                </Typography>
-              </Box>
             </Box>
-          </StyledLink>
+          </Box>
+
           <Box
             sx={{
               display: { xs: 'none', sm: 'flex', alignItems: 'center' },
@@ -143,25 +135,23 @@ const Navbar: React.FC<NavbarProps> = ({
             <List sx={{ display: 'flex' }}>
               {menuItems.map((item, index) => (
                 <div key={index}>
-                  <StyledLink to={item.url}>
-                    <ListItem
-                      onClick={(event) => handleMenuClick(event, item.label)}
-                      sx={{ color: 'white', cursor: 'pointer', mr: 0 }}
-                    >
-                      <ListItemText primary={item.label} />
+                  <ListItem
+                    onClick={(event) => handleMenuClick(event, item.label)}
+                    sx={{ color: 'white', cursor: 'pointer', mr: 0 }}
+                  >
+                    <ListItemText primary={item.label} />
 
-                      {/* Show expand icon if item has children */}
-                      {item.child && (
-                        <ListItemIcon sx={{ color: 'white', minWidth: '0px' }}>
-                          {openMenu === item.label ? (
-                            <ExpandLess />
-                          ) : (
-                            <ExpandMore />
-                          )}
-                        </ListItemIcon>
-                      )}
-                    </ListItem>
-                  </StyledLink>
+                    {/* Show expand icon if item has children */}
+                    {item.child && (
+                      <ListItemIcon sx={{ color: 'white', minWidth: '0px' }}>
+                        {openMenu === item.label ? (
+                          <ExpandLess />
+                        ) : (
+                          <ExpandMore />
+                        )}
+                      </ListItemIcon>
+                    )}
+                  </ListItem>
 
                   {/* Popover for Submenu Items */}
                   {item.child && openMenu === item.label && (
@@ -180,11 +170,9 @@ const Navbar: React.FC<NavbarProps> = ({
                     >
                       <List>
                         {item.child.map((subItem, subIndex) => (
-                          <StyledLink to={subItem.url}>
-                            <ListItem key={subIndex}>
-                              <ListItemText primary={subItem.label} />
-                            </ListItem>
-                          </StyledLink>
+                          <ListItem key={subIndex}>
+                            <ListItemText primary={subItem.label} />
+                          </ListItem>
                         ))}
                       </List>
                     </Popover>
@@ -244,25 +232,19 @@ const Navbar: React.FC<NavbarProps> = ({
         <List>
           {menuItems.map((item, index) => (
             <div key={index}>
-              <StyledLink to={item.url}>
-                <ListItem
-                  onClick={(event) => handleMenuClick(event, item.label)}
-                  sx={{ color: 'primary.contrastText', cursor: 'pointer' }}
-                >
-                  <ListItemText primary={item.label} />
+              <ListItem
+                onClick={(event) => handleMenuClick(event, item.label)}
+                sx={{ color: 'primary.contrastText', cursor: 'pointer' }}
+              >
+                <ListItemText primary={item.label} />
 
-                  {/* Show expand icon if item has children */}
-                  {item.child && (
-                    <ListItemIcon>
-                      {openMenu === item.label ? (
-                        <ExpandLess />
-                      ) : (
-                        <ExpandMore />
-                      )}
-                    </ListItemIcon>
-                  )}
-                </ListItem>
-              </StyledLink>
+                {/* Show expand icon if item has children */}
+                {item.child && (
+                  <ListItemIcon>
+                    {openMenu === item.label ? <ExpandLess /> : <ExpandMore />}
+                  </ListItemIcon>
+                )}
+              </ListItem>
 
               {/* Popover for Submenu Items */}
               {item.child && openMenu === item.label && (
