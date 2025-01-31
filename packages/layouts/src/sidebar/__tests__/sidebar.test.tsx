@@ -2,7 +2,13 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import SidebarLayout, { SidebarItem } from '../index';
-import { Home, Settings, Info, AccountCircle } from '@mui/icons-material';
+import {
+  Home,
+  Settings,
+  Info,
+  AccountCircle,
+  AcUnitOutlined,
+} from '@mui/icons-material';
 
 // Example components for testing
 const HomeComponent = () => <div>Home Content</div>;
@@ -28,11 +34,17 @@ const sidebarItems: SidebarItem[] = [
 ];
 
 describe('SidebarLayout', () => {
+  const appInfo = {
+    logo: <AcUnitOutlined fontSize="large" />, // Mock logo component
+    name: 'Development',
+    subLine: 'Digital Platform',
+  };
   test('renders all sidebar items, including nested ones', () => {
     render(
       <SidebarLayout
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
+        appInfo={appInfo}
       />
     );
     expect(screen.getByText('Home')).toBeInTheDocument();
@@ -46,6 +58,7 @@ describe('SidebarLayout', () => {
       <SidebarLayout
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
+        appInfo={appInfo}
       />
     );
     expect(screen.getByText('Home Content')).toBeInTheDocument();
@@ -56,6 +69,7 @@ describe('SidebarLayout', () => {
       <SidebarLayout
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
+        appInfo={appInfo}
       />
     );
     fireEvent.click(screen.getByText('Home'));
@@ -67,6 +81,7 @@ describe('SidebarLayout', () => {
       <SidebarLayout
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
+        appInfo={appInfo}
       />
     );
     // Expand "Settings" menu
@@ -89,6 +104,7 @@ describe('SidebarLayout', () => {
       <SidebarLayout
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
+        appInfo={appInfo}
       />
     );
     fireEvent.click(screen.getByText('Settings'));
@@ -101,6 +117,7 @@ describe('SidebarLayout', () => {
       <SidebarLayout
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
+        appInfo={appInfo}
       />
     );
     fireEvent.click(screen.getByText('Settings'));
@@ -114,6 +131,7 @@ describe('SidebarLayout', () => {
       <SidebarLayout
         sidebarItems={[]}
         defaultComponent={<div>No Items Available</div>}
+        appInfo={appInfo}
       />
     );
     expect(screen.getByText('No Items Available')).toBeInTheDocument();
