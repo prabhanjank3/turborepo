@@ -5,7 +5,16 @@ import Sidebar from '..';
 
 describe('<Sidebar  />', () => {
   it('should match snapshot', () => {
-    const loadingIndicator = render(<Sidebar views={[]} />);
+    const loadingIndicator = render(
+      <Sidebar
+        sidebarItems={[]}
+        appInfo={{
+          logo: undefined,
+          name: '',
+          subLine: '',
+        }}
+      />
+    );
     expect(loadingIndicator.container.firstChild).toMatchSnapshot();
   });
 });
