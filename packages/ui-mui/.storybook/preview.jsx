@@ -2,7 +2,7 @@
 import React from 'react';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { BrowserRouter } from 'react-router-dom';
-import { theme as muiTheme } from './theme';
+import { theme as muiTheme } from '../src/theme';
 
 const theme = createTheme(muiTheme);
 

@@ -1,5 +1,5 @@
-import OswaldTTF from '../assets/fonts/Oswald-VariableFont_wght.ttf';
-import Roboto from '../assets/fonts/Roboto-Regular.ttf';
+import OswaldTTF from '../../assets/fonts/Oswald-VariableFont_wght.ttf';
+import Roboto from '../../assets/fonts/Roboto-Regular.ttf';
 
 export const theme = {
   // Customize your MUI theme here if needed
