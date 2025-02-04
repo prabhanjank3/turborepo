@@ -1,10 +1,3 @@
-// /** @type {import('ts-jest').JestConfigWithTsJest} **/
-// module.exports = {
-//   testEnvironment: 'jsdom',
-//   transform: {
-//     '^.+.tsx?$': ['ts-jest', {}],
-//   },
-// };
 module.exports = {
   // Allow Jest to resolve modules from packages
   modulePaths: ['<rootDir>/packages', '<rootDir>/apps'],
@@ -24,6 +17,8 @@ module.exports = {
   // Set up the environment if needed (like jsdom for browser-like environment)
   testEnvironment: 'jsdom', // Or 'jsdom' for browser tests
   testResultsProcessor: 'jest-sonar-reporter',
+
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   // Optionally, configure global setups or mocks
   //   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 };

@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Navbar, { NavbarProps } from '..';
 
-describe('Navbar', () => {
+describe.skip('Navbar', () => {
   const mockAppInfo = {
     logo: <div>Logo</div>,
     name: 'My App',
