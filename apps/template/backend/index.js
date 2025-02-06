@@ -11,7 +11,7 @@ app.use('/api', routes);
 const PORT = process.env.PORT || 3000;
 
 // Sync database and start server
-db.sequelize
+db.dbConnection
   .sync()
   .then(() => {
     console.log('Database connected successfully');

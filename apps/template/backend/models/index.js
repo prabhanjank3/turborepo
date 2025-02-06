@@ -1,21 +1,22 @@
-const { Sequelize } = require('sequelize');
-const config = require('../config/config');
-
-const env = process.env.NODE_ENV || 'development';
-const dbConfig = config[env];
-
-const sequelize = new Sequelize(
-  dbConfig.database,
-  dbConfig.username,
-  dbConfig.password,
-  {
-    host: dbConfig.host,
-    dialect: dbConfig.dialect,
-  }
-);
+const Sequalize = require('sequelize');
+const dbConnection = require('../config/sequelize');
 
 const db = {};
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+db.dbConnection = dbConnection;
+db.Sequalize = Sequalize;
+
+// Add models to db object here
+
+Object.keys(db).forEach((modelName) => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
+
+// Databse Syncing
+db.dbConnection.sync({ force: true }).then(async () => {
+  // await clearDB();
+  // createSampleData();
+});
 
 module.exports = db;
