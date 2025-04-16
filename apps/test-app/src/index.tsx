@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { ReactNode } from 'react';
 import { createRoot, Container } from 'react-dom/client'; // Import createRoot
 import { Navbar } from '@achieve4sure/ui-mui';

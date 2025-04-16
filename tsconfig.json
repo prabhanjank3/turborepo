@@ -6,7 +6,7 @@
       "jsx": "react-jsx",                    // Specify JSX code generation
       "strict": true,                        // Enable all strict type-checking options
       "esModuleInterop": true,
-      "skipLibCheck": true,               // Enables emit interoperability between CommonJS and ES Modules
+      // "skipLibCheck": true,               // Enables emit interoperability between CommonJS and ES Modules
       "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
     },
     "include": ["apps/**/*", "packages/**/*"], // Specify files to include

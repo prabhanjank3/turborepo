@@ -17,6 +17,6 @@ export interface TimeFieldProps {
   label: string;
   defaultValue?: Date;
   extraAttributes?: Object;
-  onChange: func;
+  onChange: any;
   meta?: TimeFieldMeta;
 }

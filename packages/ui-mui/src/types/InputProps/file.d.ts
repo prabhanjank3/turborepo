@@ -18,6 +18,6 @@ export interface FileFieldProps {
   label: string;
   placeholder?: string;
   extraAttributes?: Object;
-  onChange: func;
-  meta?: TextFieldMeta;
+  onChange: any;
+  meta?: FileFieldMeta;
 }

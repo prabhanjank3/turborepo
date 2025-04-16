@@ -9,7 +9,6 @@
     "outDir": "./dist",               // Output directory for compiled files
     "rootDir": "./src",               // Root directory of your source files
     "esModuleInterop": true,
-    "skipLibCheck": true              // Optional, can help avoid errors in node_modules
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

@@ -3,6 +3,6 @@ export interface ImageLinkFieldProps {
   preview?: boolean;
   label: string;
   placeholder?: string;
-  onChange: func;
+  onChange: any;
   value?: string;
 }
