@@ -11,10 +11,10 @@ export default function ImageKitInput({
   onSuccess,
   onError,
 }: Props) {
-  const publicKey = process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY;
-  const urlEndpoint: string | undefined =
-    process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT;
-  const authenticationEndpoint: URL = process.env
+  const publicKey = import.meta.env.REACT_APP_IMAGEKIT_PUBLIC_KEY;
+  const urlEndpoint: string | undefined = import.meta.env
+    .REACT_APP_IMAGEKIT_URL_ENDPOINT;
+  const authenticationEndpoint: URL = import.meta.env
     .REACT_APP_IMAGEKIT_AUTHENTICATION_ENDPOINT as unknown as URL;
 
   const authenticator = () => {
@@ -45,7 +45,6 @@ export default function ImageKitInput({
           overwriteTags={true}
           overwriteCustomMetadata={true}
           onUploadStart={() => {
-            // eslint-disable-next-line no-console
             console.log('Upload Started');
           }}
           onError={onError}

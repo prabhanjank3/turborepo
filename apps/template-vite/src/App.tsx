@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Hello from './components/hello';
+import Counter from './components/counter';
+import { DefaultLayout } from '@achieve4sure/layouts';
+import { Navbar, Footer } from '@achieve4sure/ui-mui';
+import { Lightbulb } from '@mui/icons-material';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <DefaultLayout
+            Navbar={
+              <Navbar
+                appInfo={{
+                  logo: <Lightbulb />,
+                  name: 'POWERHUB',
+                  subLine: 'Digital Platform',
+                }}
+                menuItems={[{ label: 'Home', url: '/counter' }]}
+                UserControls={undefined}
+              />
+            }
+            Footer={<Footer />}
+          />
+        }
+      >
+        <Route path="" element={<Hello />} />
+        <Route path="/counter" element={<Counter />} />
+      </Route>
+    </Routes>
+  );
+};
 
-export default App
+export default App;

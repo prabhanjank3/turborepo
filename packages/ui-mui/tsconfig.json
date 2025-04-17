@@ -3,7 +3,8 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "ESNext",
+"moduleResolution": "bundler",
     "strict": true,
     "declaration": true,              // Ensure declaration files are generated
     "outDir": "./dist",               // Output directory for compiled files

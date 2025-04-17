@@ -1,7 +1,7 @@
 import OswaldTTF from './assets/fonts/Oswald-VariableFont_wght.ttf';
 import Roboto from './assets/fonts/Roboto-Regular.ttf';
 
-export const theme = {
+export const theme: any = {
   // Customize your MUI theme here if needed
   typography: {
     body1: {
@@ -41,11 +41,6 @@ export const theme = {
       fontFamily: 'Oswald',
       fontWeight: 600,
       fontSize: 15,
-    },
-    logo: {
-      fontSize: 20,
-      fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
-      fontWeight: 400,
     },
   },
   components: {
@@ -104,9 +99,5 @@ export const theme = {
       light: '',
       dark: '',
     },
-  },
-  logo: {
-    fontFamily: 'Roboto',
-    fontSize: '24px',
   },
 };

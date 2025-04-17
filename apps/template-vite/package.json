@@ -24,6 +24,8 @@
     "globals": "^16.0.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
-    "vite": "^6.3.1"
+    "vite": "^6.3.1",
+    "@achieve4sure/ui-mui": "1.0.0",
+    "@achieve4sure/layouts": "1.0.0"
   }
 }
