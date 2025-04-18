@@ -1,4 +1,14 @@
 {
-  "extends": "@achieve4sure/config/tsconfig/base.json",
-  "compilerOptions": {}
+  "extends": "@achieve4sure/config/tsconfig/tsconfig.package.json",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "module": "esnext", // or "es2020", "nodenext", etc.
+    "target": "esnext", // or at least "es2020"
+    "moduleResolution": "bundler", // recommended for Vite
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react-jsx" // if using React 17+
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
