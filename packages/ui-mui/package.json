@@ -5,6 +5,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "storybook": "storybook dev -p 6006",
+    "lint": "eslint .",
     "build": "tsc -b && copyfiles -u 1 'src/**/*.css' 'src/**/*.d.ts' dist/",
     "build-storybook": "storybook build"
   },
