@@ -1,17 +1,18 @@
 {
-    "compilerOptions": {
-      "outDir": "./dist",
-      "target": "esnext",                    // Specify ECMAScript target version
-      "module": "commonjs",                  // Specify module code generation
-      "jsx": "react-jsx",                    // Specify JSX code generation
-      "strict": true,                        // Enable all strict type-checking options
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
-    },
-    "paths": {
-      "@achieve4sure/ui-mui": ["packages/ui-mui/src"]
-    },
-    "include": ["apps/**/*", "packages/**/*"], // Specify files to include
-    "exclude": ["node_modules", "**/*.spec.ts", "internals/**", "**/*.stories.tsx"] // Specify files to exclude
-  }
-  
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "esnext", // Specify ECMAScript target version
+    "module": "commonjs", // Specify module code generation
+    "jsx": "react-jsx", // Specify JSX code generation
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true // Disallow inconsistently-cased references to the same file
+  },
+  "include": ["apps/**/*", "packages/**/*"], // Specify files to include
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "internals/**",
+    "**/*.stories.tsx"
+  ] // Specify files to exclude
+}

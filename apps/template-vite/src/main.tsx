@@ -5,7 +5,7 @@ import { theme as muiTheme } from './theme';
 import ReactDOM from 'react-dom/client';
 import { store } from './store';
 import { Provider } from 'react-redux';
-import App from './app';
+import App from './App';
 
 const theme = createTheme(muiTheme);
 
@@ -20,5 +20,5 @@ root.render(
         </BrowserRouter>
       </ThemeProvider>
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
