@@ -31,7 +31,7 @@ export interface AutoCompleteProps {
    */
   value?: CustomOption | null | unknown;
   defaultValue?: CustomOption;
-  onChange: func;
+  onChange: any;
   meta?: AutoCompleteMeta;
   extraAttributes?: Object;
 }

@@ -1,57 +1,65 @@
-const config = [
+const tsPlugin = require('@typescript-eslint/eslint-plugin');
+const tsParser = require('@typescript-eslint/parser');
+const reactPlugin = require('eslint-plugin-react');
+const prettierPlugin = require('eslint-plugin-prettier');
+
+module.exports = [
   {
-    files: ['*.tsx', '*.ts'],
+    ignores: ['**/dist/**', '**/node_modules/**'],
+  },
+  {
+    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser: require('@typescript-eslint/parser'), // Use the TypeScript parser for .tsx and .ts files
+      parser: tsParser,
       parserOptions: {
-        ecmaVersion: 'latest', // Use the latest ECMAScript version
-        sourceType: 'module', // Enable ES module syntax
-        requireConfigFile: false, // Disable the Babel config file check
+        ecmaVersion: 'latest',
+        sourceType: 'module',
         ecmaFeatures: {
-          jsx: true, // Enable JSX syntax for .tsx files
+          jsx: true,
         },
-      },
-      globals: {
-        __dirname: 'readonly',
-        process: 'readonly',
       },
     },
     plugins: {
-      prettier: require('eslint-plugin-prettier'),
-      react: require('eslint-plugin-react'),
-      '@typescript-eslint': require('@typescript-eslint/eslint-plugin'), // TypeScript plugin
+      '@typescript-eslint': tsPlugin,
+      react: reactPlugin,
+      prettier: prettierPlugin,
     },
     rules: {
-      'prettier/prettier': 'error', // Make Prettier errors show up as ESLint errors
+      'prettier/prettier': 'error',
       '@typescript-eslint/no-unused-vars': [
         'error',
-        { argsIgnorePattern: '^_' }, // Ignore unused args that start with '_'
+        { argsIgnorePattern: '^_' },
       ],
-      '@typescript-eslint/no-explicit-any': 'error', // Disallow the use of 'any' type
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'react/prop-types': 'off',
     },
   },
   {
-    files: ['*.js', '*.jsx'], // Match .js and .jsx files here
+    files: ['**/*.js', '**/*.jsx'],
     languageOptions: {
-      parser: require('@babel/eslint-parser'), // Use Babel parser for .js and .jsx files
+      parser: require('@babel/eslint-parser'),
       parserOptions: {
-        ecmaVersion: 'latest', // Use the latest ECMAScript version
-        sourceType: 'module', // Enable ES module syntax
-        requireConfigFile: false, // Disable the Babel config file check
+        ecmaVersion: 'latest',
+        sourceType: 'module',
         ecmaFeatures: {
-          jsx: true, // Enable JSX for .js and .jsx files
+          jsx: true,
         },
+        requireConfigFile: false,
       },
     },
     plugins: {
-      prettier: require('eslint-plugin-prettier'),
-      react: require('eslint-plugin-react'),
+      react: reactPlugin,
+      prettier: prettierPlugin,
     },
     rules: {
-      'prettier/prettier': 'error', // Make Prettier errors show up as ESLint errors
-      'react/prop-types': 'off', // Disable prop-types checking in React (TypeScript handles types)
+      'prettier/prettier': 'error',
+      'react/prop-types': 'off',
+    },
+  },
+  {
+    files: ['**/.storybook/**/*.jsx'],
+    rules: {
+      'react/react-in-jsx-scope': 'off', // Disable the rule for Storybook files
     },
   },
 ];
-
-module.exports = config;

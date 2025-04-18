@@ -5,14 +5,12 @@ import SidebarLayout, { SidebarItem } from '../index';
 import {
   Home,
   Settings,
-  Info,
   AccountCircle,
   AcUnitOutlined,
 } from '@mui/icons-material';
 
 // Example components for testing
 const HomeComponent = () => <div>Home Content</div>;
-const SettingsComponent = () => <div>Settings Content</div>;
 const ProfileComponent = () => <div>Profile Content</div>;
 const AboutComponent = () => <div>About Content</div>;
 

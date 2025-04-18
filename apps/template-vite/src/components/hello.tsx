@@ -1,6 +1,6 @@
 import React from 'react';
 import { DynamicForm } from '@achieve4sure/ui-mui';
-import { type FormConfig, type Field } from '@achieve4sure/ui-mui';
+import { type Field } from '@achieve4sure/ui-mui';
 
 const fields: Field[] = [
   {
@@ -21,6 +21,7 @@ const fields: Field[] = [
     type: 'select',
     name: 'gender',
     label: 'Gender',
+    defaultValue: 'male',
     options: [
       { label: 'Male', value: 'male' },
       { label: 'Female', value: 'female' },

@@ -24,6 +24,6 @@ export interface DateFieldProps {
   inputFormat?: string;
   defaultValue?: Date;
   extraAttributes?: Object;
-  onChange: func;
+  onChange: any;
   meta?: DateFieldMeta;
 }

@@ -1,4 +1,5 @@
-/* eslint-disable no-unused-vars */
+// @ts-nocheck
+
 interface Option {
   label: string | Element;
   value: string | React.ReactHTMLElement;

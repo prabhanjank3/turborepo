@@ -4,14 +4,12 @@ import { StoryObj, Meta } from '@storybook/react';
 import {
   Home,
   Settings,
-  Info,
   AccountCircle,
   AcUnitOutlined,
 } from '@mui/icons-material';
 
 // Example components for rendering
 const HomeComponent = () => <div>Welcome to the Home Page</div>;
-const SettingsComponent = () => <div>Here are your settings</div>;
 const ProfileComponent = () => <div>Your profile details</div>;
 const AboutComponent = () => <div>About this application</div>;
 

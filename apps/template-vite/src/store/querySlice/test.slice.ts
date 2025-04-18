@@ -3,13 +3,12 @@
  * Test Slice - Created with Plop
  *
  */
-
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const testSlice = createApi({
   reducerPath: `testReducer`,
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_SERVER_URL,
+    baseUrl: import.meta.env.REACT_APP_SERVER_URL,
   }),
   tagTypes: ['fetch'],
   endpoints: (builder) => {

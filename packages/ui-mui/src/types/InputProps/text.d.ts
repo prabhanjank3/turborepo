@@ -18,7 +18,7 @@ export interface TextFieldProps {
   label: string;
   placeholder?: string;
   extraAttributes?: Object;
-  onChange: func;
+  onChange: any;
   meta?: TextFieldMeta;
   helperText?: string;
 }

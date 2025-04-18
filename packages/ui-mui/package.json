@@ -2,9 +2,11 @@
   "name": "@achieve4sure/ui-mui",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "build": "tsc && copyfiles -u 1 'src/**/*.css' dist/",
+    "lint": "eslint .",
+    "build": "tsc -b && copyfiles -u 1 'src/**/*.css' 'src/**/*.d.ts' dist/",
     "build-storybook": "storybook build"
   },
   "devDependencies": {
