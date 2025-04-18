@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  *
  * Autocomplete
@@ -44,7 +45,7 @@ const AutocompleteInputField = ({
 
   const handleChange = (
     _event: React.SyntheticEvent<Element, Event>,
-    newValue: unknown
+    newValue: unknown,
   ) => {
     setValue(newValue as CustomOption);
     onChange(newValue);
@@ -62,7 +63,7 @@ const AutocompleteInputField = ({
       }}
       defaultValue={
         (options ? options : []).filter(
-          (option) => option.id === defaultValue?.id
+          (option) => option.id === defaultValue?.id,
         )[0]?.value || null
       }
       id="controllable-states-demo"

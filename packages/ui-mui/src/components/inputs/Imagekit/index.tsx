@@ -11,10 +11,10 @@ export default function ImageKitInput({
   onSuccess,
   onError,
 }: Props) {
-  const publicKey = import.meta.env.REACT_APP_IMAGEKIT_PUBLIC_KEY;
-  const urlEndpoint: string | undefined = import.meta.env
-    .REACT_APP_IMAGEKIT_URL_ENDPOINT;
-  const authenticationEndpoint: URL = import.meta.env
+  const publicKey = process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY;
+  const urlEndpoint: string | undefined =
+    process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT;
+  const authenticationEndpoint: URL = process.env
     .REACT_APP_IMAGEKIT_AUTHENTICATION_ENDPOINT as unknown as URL;
 
   const authenticator = () => {
