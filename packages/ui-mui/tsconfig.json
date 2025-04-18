@@ -1,18 +1,13 @@
-// packages/my-component-library/tsconfig.json
 {
-    "extends": "../../tsconfig.json",
-    "compilerOptions": {
-    "target": "es5",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "strict": true,
-    "declaration": true,              // Ensure declaration files are generated
-    "outDir": "./dist",               // Output directory for compiled files
-    "rootDir": "./src",               // Root directory of your source files
-    "esModuleInterop": true,
-    "skipLibCheck": true
+  "extends": "@achieve4sure/config/tsconfig/tsconfig.package.json",
+  "compilerOptions": {
+    "outDir": "dist"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
-  }
-  
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "internals/**",
+    "**/*.stories.tsx"
+  ]
+}

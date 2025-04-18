@@ -1,4 +1,3 @@
-import React from 'react';
 import { DynamicForm } from '@achieve4sure/ui-mui';
 import { type Field } from '@achieve4sure/ui-mui';
 
@@ -35,7 +34,7 @@ const fields: Field[] = [
     fetchOptions: async () => {
       // Simulate API call
       const response = await fetch(
-        'https://jsonplaceholder.typicode.com/todos'
+        'https://jsonplaceholder.typicode.com/todos',
       );
       const data = await response.json();
       return data.map((todo: any) => ({
