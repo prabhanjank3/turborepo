@@ -1,8 +1,10 @@
 {
   "extends": "@achieve4sure/config/tsconfig/tsconfig.package.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "module": "CommonJS",
+    "rootDir": "./"
   },
-  "include": ["src/**/*"],
+  "include": ["plopfile.ts", "generators", "utils"],
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.stories.tsx"]
 }

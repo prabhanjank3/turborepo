@@ -1,12 +1,12 @@
 {
   "name": "@achieve4sure/generators",
   "version": "1.0.0",
-  "main": "plopfile.js",
-  "type": "module",
+  "main": "plopfile.ts",
   "dependencies": {
-    "plop": "^3.1.1"
+    "plop": "4.0.1"
   },
   "scripts": {
-    "plop": "yarn tsc plopfile.ts"
+    "build": "tsc -b",
+    "plop": "plop --plopfile dist/plopfile.js"
   }
 }
