@@ -1,4 +1,5 @@
 export const generateAppActions = (answers: any) => {
+  console.log(answers);
   const actions: any[] = [];
 
   const appBasePath = `../../apps/${answers.name}`;
@@ -7,9 +8,9 @@ export const generateAppActions = (answers: any) => {
   actions.push({
     type: 'addMany',
     destination: appBasePath,
-    templateFiles: 'templates/app/base/**/*',
-    base: 'templates/app/base',
-    stripExtensions: ['.hbs'],
+    templateFiles: 'templates/app/**/*',
+    base: 'templates/app',
+    stripExtensions: ['hbs'],
   });
 
   // Redux setup
