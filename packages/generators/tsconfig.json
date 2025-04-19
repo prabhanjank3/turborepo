@@ -1,0 +1,8 @@
+{
+  "extends": "@achieve4sure/config/tsconfig/tsconfig.package.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.stories.tsx"]
+}
