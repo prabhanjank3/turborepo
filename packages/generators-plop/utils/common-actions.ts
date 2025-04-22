@@ -1,13 +1,18 @@
-import { ActionType } from 'plop';
+const { execSync } = require('child_process');
+const path = require('path');
 
-export const copyTemplateFiles = (
-  templateFolder: string,
-  targetFolder: string,
-): ActionType[] => [
-  {
-    type: 'addMany',
-    destination: targetFolder,
-    templateFiles: `packages/generators/templates/${templateFolder}/**/*`,
-    base: `packages/generators/templates/${templateFolder}`,
-  },
-];
+export const prettifyActionType = function (answers, config) {
+  const rootPath = path.resolve(__dirname, '../../../../');
+  const folderPath = config.targetFolder;
+  console.log('rootpath', rootPath);
+  try {
+    execSync(`yarn format "${folderPath}/**/*.{js,ts,jsx,tsx,json,md}"`, {
+      cwd: rootPath,
+      stdio: 'inherit',
+    });
+
+    return `Prettified files in ${folderPath}`;
+  } catch (err) {
+    throw new Error(`Prettier failed on ${folderPath}: ${err.message}`);
+  }
+};

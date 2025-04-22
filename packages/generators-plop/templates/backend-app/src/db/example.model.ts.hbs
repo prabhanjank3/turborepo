@@ -1,0 +1,6 @@
+import { DataTypes } from 'sequelize';
+import sequelize from './index';
+
+export const ExampleModel = sequelize.define('Example', {
+  name: DataTypes.STRING,
+});
