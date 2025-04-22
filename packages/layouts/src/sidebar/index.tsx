@@ -69,7 +69,7 @@ export default function SidebarLayout({
   const renderSidebarItems = (
     items: SidebarItem[],
     parentIndex = '',
-    level = 0
+    level = 0,
   ) => (
     <List sx={{ mt: isMobile && !parentIndex ? 8 : 0 }}>
       {items.map((item, index) => {

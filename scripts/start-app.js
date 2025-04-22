@@ -12,7 +12,7 @@ const packageJsonPath = path.join(
   __dirname,
   '../apps',
   appName,
-  'package.json'
+  'package.json',
 );
 
 const packageJson = require(packageJsonPath);
@@ -20,7 +20,7 @@ const packageJson = require(packageJsonPath);
 // Check if the start script exists
 if (!packageJson.scripts || !packageJson.scripts.start) {
   console.error(
-    `The package '${appName}' does not have a start script defined.`
+    `The package '${appName}' does not have a start script defined.`,
   );
   process.exit(1);
 }

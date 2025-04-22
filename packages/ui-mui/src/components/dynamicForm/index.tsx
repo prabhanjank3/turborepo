@@ -41,7 +41,7 @@ const renderField = (
   field: Field,
   value: any,
   onChange: (value: any) => void,
-  error?: string
+  error?: string,
 ) => {
   const { type, label, placeholder, options, props } = field;
 
@@ -103,7 +103,7 @@ const renderField = (
                 >
                   {option.label}
                 </MenuItem>
-              )
+              ),
             )}
           </Select>
           {error && (
@@ -198,7 +198,7 @@ const renderField = (
                   label={option.label}
                   {...(props as FormControlLabelProps)}
                 />
-              )
+              ),
             )}
           </RadioGroup>
           {error && (
@@ -327,7 +327,7 @@ const DynamicForm: React.FC<{ config: FormConfig }> = ({ config }) => {
               field,
               formValues[field.name] || field.defaultValue,
               handleChange(field.name),
-              errors[field.name]
+              errors[field.name],
             )}
           </Grid>
         ))}

@@ -43,7 +43,7 @@ describe('SidebarLayout', () => {
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
         appInfo={appInfo}
-      />
+      />,
     );
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Settings')).toBeInTheDocument();
@@ -57,7 +57,7 @@ describe('SidebarLayout', () => {
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
         appInfo={appInfo}
-      />
+      />,
     );
     expect(screen.getByText('Home Content')).toBeInTheDocument();
   });
@@ -68,7 +68,7 @@ describe('SidebarLayout', () => {
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
         appInfo={appInfo}
-      />
+      />,
     );
     fireEvent.click(screen.getByText('Home'));
     expect(screen.getByText('Home Content')).toBeInTheDocument();
@@ -80,7 +80,7 @@ describe('SidebarLayout', () => {
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
         appInfo={appInfo}
-      />
+      />,
     );
     // Expand "Settings" menu
     fireEvent.click(screen.getByText('Settings'));
@@ -103,7 +103,7 @@ describe('SidebarLayout', () => {
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
         appInfo={appInfo}
-      />
+      />,
     );
     fireEvent.click(screen.getByText('Settings'));
     fireEvent.click(screen.getByText('Profile'));
@@ -116,7 +116,7 @@ describe('SidebarLayout', () => {
         sidebarItems={sidebarItems}
         defaultComponent={<HomeComponent />}
         appInfo={appInfo}
-      />
+      />,
     );
     fireEvent.click(screen.getByText('Settings'));
     fireEvent.click(screen.getByText('About'));
@@ -130,7 +130,7 @@ describe('SidebarLayout', () => {
         sidebarItems={[]}
         defaultComponent={<div>No Items Available</div>}
         appInfo={appInfo}
-      />
+      />,
     );
     expect(screen.getByText('No Items Available')).toBeInTheDocument();
   });

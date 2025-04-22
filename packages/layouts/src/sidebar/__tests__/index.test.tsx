@@ -13,7 +13,7 @@ describe('<Sidebar  />', () => {
           name: '',
           subLine: '',
         }}
-      />
+      />,
     );
     expect(loadingIndicator.container.firstChild).toMatchSnapshot();
   });

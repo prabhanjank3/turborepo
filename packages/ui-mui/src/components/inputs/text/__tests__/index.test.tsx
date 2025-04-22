@@ -18,7 +18,7 @@ describe('TextFieldInput Component', () => {
           onChange={mockOnChange}
           {...props}
         />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
   };
 

@@ -19,7 +19,7 @@ describe('TimeFieldInput Component', () => {
           onChange={mockOnChange}
           {...props}
         />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
   };
 
