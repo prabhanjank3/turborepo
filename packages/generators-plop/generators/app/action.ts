@@ -18,5 +18,10 @@ export const generateAppActions = (answers: any) => {
     targetFolder: `apps/${answers.name}`,
   });
 
+  actions.push({
+    type: 'install',
+    targetFolder: `${appBasePath}`,
+  });
+
   return actions;
 };

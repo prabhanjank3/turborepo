@@ -2,7 +2,10 @@ import { NodePlopAPI } from 'plop';
 import appGenerator from './generators/app';
 import backendApp from './generators/backend-app';
 import { openCurlyHelper, closeCurlyHelper } from './utils/helpers';
-import { prettifyActionType } from './utils/common-actions';
+import {
+  installDependancies,
+  prettifyActionType,
+} from './utils/common-actions';
 
 module.exports = function (plop: NodePlopAPI) {
   plop.setGenerator('app', appGenerator(plop));
@@ -12,4 +15,5 @@ module.exports = function (plop: NodePlopAPI) {
   plop.setHelper('closeCurly', closeCurlyHelper);
 
   plop.setActionType('prettify', prettifyActionType);
+  plop.setActionType('install', installDependancies);
 };

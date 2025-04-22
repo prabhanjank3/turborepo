@@ -18,6 +18,10 @@ export const backendActions = (plop: NodePlopAPI) => {
         type: 'prettify',
         targetFolder: `backend/${answers.name}`,
       },
+      {
+        type: 'install',
+        targetFolder: `backend/${answers.name}`,
+      },
     ];
   };
 };
