@@ -11,6 +11,9 @@ export const generateAppActions = (answers: any) => {
     base: 'templates/app',
     stripExtensions: ['hbs'],
     force: true,
+    skipInterpolation: [
+      '**/*.{png,jpg,jpeg,svg,gif,webp,woff,woff2,eot,ttf,otf,ico,css}',
+    ],
   });
 
   actions.push({
@@ -20,7 +23,7 @@ export const generateAppActions = (answers: any) => {
 
   actions.push({
     type: 'install',
-    targetFolder: `${appBasePath}`,
+    targetFolder: `apps/${answers.name}`,
   });
 
   return actions;

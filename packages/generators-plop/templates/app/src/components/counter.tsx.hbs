@@ -1,0 +1,41 @@
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../store';
+import { increment, decrement } from '../store/slices/test/testSlice';
+
+const TestComponent: React.FC = () => {
+  const count = useSelector((state: RootState) => state.test.value);
+  const dispatch = useDispatch();
+  const [input, setInput] = useState(0);
+
+  return (
+    <div className="p-4 rounded border shadow-md max-w-md mx-auto text-center">
+      <h2 className="text-2xl font-semibold mb-4">Test Counter</h2>
+      <p className="text-xl mb-4">Current Count: {count}</p>
+
+      <div className="flex justify-center gap-4 mb-4">
+        <button
+          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+          onClick={() => dispatch(increment())}
+        >
+          +
+        </button>
+        <button
+          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+          onClick={() => dispatch(decrement())}
+        >
+          -
+        </button>
+      </div>
+
+      <input
+        type="number"
+        className="border rounded px-2 py-1 mr-2"
+        value={input}
+        onChange={(e) => setInput(Number(e.target.value))}
+      />
+    </div>
+  );
+};
+
+export default TestComponent;

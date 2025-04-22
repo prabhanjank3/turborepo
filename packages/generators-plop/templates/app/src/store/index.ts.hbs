@@ -1,20 +1,17 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { testSlice } from './api/test.api';
-import counterReducer from './slices/test.slice';
-
-// IMPORT SLICES HERE
+// import {{camelCase name}}Reducer from './slices/{{camelCase name}}/{{camelCase name}}Slice';
+import testReducer from './slices/test/testSlice';
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
-  [testSlice.reducerPath]: testSlice.reducer,
-  // INSERT REDUCERS HERE
+  // {{camelCase name}}: {{camelCase name}}Reducer,
+  test: testReducer,
 });
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: (defaultMiddleware) =>
-    defaultMiddleware().concat(testSlice.middleware),
+  middleware: (defaultMiddleware) => defaultMiddleware(),
   // INSERT MIDDLEWARES HERE
 });
 
 export { store };
+export type RootState = ReturnType<typeof rootReducer>;

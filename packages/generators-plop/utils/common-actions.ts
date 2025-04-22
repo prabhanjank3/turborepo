@@ -7,7 +7,7 @@ export const prettifyActionType = function (answers, config) {
   const folderPath = config.targetFolder;
   console.log('rootpath', rootPath);
   try {
-    execSync(`yarn format "${folderPath}/**/*.{js,ts,jsx,tsx,json,md}"`, {
+    execSync(`yarn format "${folderPath}"`, {
       cwd: rootPath,
       stdio: 'inherit',
     });

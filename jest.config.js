@@ -1,3 +1,3 @@
-import jest from '@achieve4sure/config/jest';
+const jest = require('@achieve4sure/config/jest');
 
 module.exports = jest;
