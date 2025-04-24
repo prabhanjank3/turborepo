@@ -1,9 +1,14 @@
+import path from 'path';
+import { listDirectories } from '../../utils/helpers';
+
+const appsDir = path.resolve(__dirname, '../../../../../apps');
+
 export const prompts: any = [
   {
-    type: 'input',
+    type: 'list',
     name: 'app',
     message: 'Which app should this slice go into?',
-    validate: (input) => !!input || 'App name is required',
+    choices: listDirectories(appsDir),
   },
   {
     type: 'input',
