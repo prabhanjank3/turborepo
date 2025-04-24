@@ -1,7 +1,12 @@
 import { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize('sqlite::memory:', {
-  logging: false,
+// Set up database connection
+const sequelize = new Sequelize({
+  dialect: 'mysql', // or 'postgres', 'sqlite', etc.
+  host: 'localhost',
+  username: 'root',
+  password: 'password',
+  database: 'your_database',
 });
 
 export default sequelize;

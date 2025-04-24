@@ -1,0 +1,18 @@
+import express from 'express';
+import {
+  getAll{{pascalCase name}}s,
+  get{{pascalCase name}}ById,
+  create{{pascalCase name}},
+  update{{pascalCase name}},
+  delete{{pascalCase name}},
+} from '../controllers/{{camelCase name}}.controller';
+
+const router = express.Router();
+
+router.get('/', getAll{{pascalCase name}}s as any);
+router.get('/:id', get{{pascalCase name}}ById as any);
+router.post('/', create{{pascalCase name}} as any);
+router.put('/:id', update{{pascalCase name}} as any);
+router.delete('/:id', delete{{pascalCase name}} as any);
+
+export default router;
