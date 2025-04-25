@@ -7,10 +7,12 @@ const rootReducer = combineReducers({
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: (defaultMiddleware) =>
-    defaultMiddleware().concat(
+  middleware: (defaultMiddleware) => {
+    const middlewares = [
       // INSERT MIDDLEWARES HERE
-    ),
+    ];
+    return defaultMiddleware().concat(...middlewares);
+  },
 });
 
 export { store };
