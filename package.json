@@ -8,11 +8,15 @@
     "dev": "turbo dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
+    "format": "prettier --write",
     "storybook": "node scripts/start-storybook.js",
     "typecheck": "npx tsc --noEmit",
     "build-storybook": "storybook build",
-    "generate": "plop --plopfile internals/plopfile.js"
+    "generate": "yarn workspace @achieve4sure/generators plop",
+    "generate:app": "yarn workspace @achieve4sure/generators plop app",
+    "generate:backend-app": "yarn workspace @achieve4sure/generators plop backend-app",
+    "generate:rtk-api": "yarn workspace @achieve4sure/generators plop rtk-api",
+    "generate:slice": "yarn workspace @achieve4sure/generators plop slice"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.25.9",

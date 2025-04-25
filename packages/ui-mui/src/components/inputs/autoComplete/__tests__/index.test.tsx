@@ -32,7 +32,7 @@ describe('AutocompleteInputField', () => {
       <AutocompleteInputField
         {...defaultProps}
         value={defaultProps.options[1]}
-      />
+      />,
     );
     expect(screen.getByDisplayValue('Option 2')).toBeInTheDocument();
   });
@@ -60,7 +60,7 @@ describe('AutocompleteInputField', () => {
       <AutocompleteInputField
         {...defaultProps}
         value={defaultProps.options[0]}
-      />
+      />,
     );
     expect(screen.getByDisplayValue('Option 1')).toBeInTheDocument();
 
@@ -68,7 +68,7 @@ describe('AutocompleteInputField', () => {
       <AutocompleteInputField
         {...defaultProps}
         value={defaultProps.options[1]}
-      />
+      />,
     );
     expect(screen.getByDisplayValue('Option 2')).toBeInTheDocument();
   });
@@ -84,7 +84,7 @@ describe('AutocompleteInputField', () => {
       <AutocompleteInputField
         {...defaultProps}
         extraAttributes={extraAttributes}
-      />
+      />,
     );
     expect(screen.getByTestId('custom-autocomplete')).toBeInTheDocument();
   });
@@ -94,7 +94,7 @@ describe('AutocompleteInputField', () => {
       <AutocompleteInputField
         {...defaultProps}
         meta={{ isValid: false, messages: ['Error message'] }}
-      />
+      />,
     );
     expect(screen.getByText('Error message')).toBeInTheDocument();
   });

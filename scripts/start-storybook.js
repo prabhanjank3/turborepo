@@ -12,7 +12,7 @@ const packageJsonPath = path.join(
   __dirname,
   '../packages',
   packageName,
-  'package.json'
+  'package.json',
 );
 
 const packageJson = require(packageJsonPath);
@@ -20,7 +20,7 @@ const packageJson = require(packageJsonPath);
 // Check if the start script exists
 if (!packageJson.scripts || !packageJson.scripts.storybook) {
   console.error(
-    `The package '${packageName}' does not have a storybook script defined.`
+    `The package '${packageName}' does not have a storybook script defined.`,
   );
   process.exit(1);
 }

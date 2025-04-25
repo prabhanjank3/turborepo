@@ -16,7 +16,7 @@ describe('ReusableModal Component', () => {
       <ReusableModal
         TriggerComponent={TriggerComponent}
         ModalContent={ModalContent}
-      />
+      />,
     );
 
     // Verify that the trigger component (Open Modal button) is rendered
@@ -29,7 +29,7 @@ describe('ReusableModal Component', () => {
       <ReusableModal
         TriggerComponent={TriggerComponent}
         ModalContent={ModalContent}
-      />
+      />,
     );
 
     // Click the trigger button to open the modal
@@ -46,7 +46,7 @@ describe('ReusableModal Component', () => {
       <ReusableModal
         TriggerComponent={TriggerComponent}
         ModalContent={ModalContent}
-      />
+      />,
     );
 
     // Open the modal
@@ -70,7 +70,7 @@ describe('ReusableModal Component', () => {
       <ReusableModal
         TriggerComponent={TriggerComponent}
         ModalContent={ModalContent}
-      />
+      />,
     );
 
     // Verify that the modal content is not rendered initially
@@ -83,7 +83,7 @@ describe('ReusableModal Component', () => {
       <ReusableModal
         TriggerComponent={TriggerComponent}
         ModalContent={ModalContent}
-      />
+      />,
     );
 
     // Open the modal

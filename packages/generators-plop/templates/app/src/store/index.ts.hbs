@@ -1,0 +1,17 @@
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+// import {{camelCase name}}Reducer from './slices/{{camelCase name}}/{{camelCase name}}Slice';
+import testReducer from './slices/test/testSlice';
+
+const rootReducer = combineReducers({
+  // {{camelCase name}}: {{camelCase name}}Reducer,
+  test: testReducer,
+});
+
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (defaultMiddleware) => defaultMiddleware(),
+  // INSERT MIDDLEWARES HERE
+});
+
+export { store };
+export type RootState = ReturnType<typeof rootReducer>;

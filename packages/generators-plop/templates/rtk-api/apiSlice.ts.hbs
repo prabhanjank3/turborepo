@@ -1,0 +1,42 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+export const {{camelCase apiName}}Api = createApi({
+  reducerPath: '{{camelCase apiName}}Api',
+  baseQuery: fetchBaseQuery({ baseUrl: 'TO_BE_FILLED' }),
+  endpoints: (builder) => ({
+    getAll{{pascalCase apiName}}: builder.query({
+      query: () => '/{{kebabCase apiName}}',
+    }),
+    get{{pascalCase apiName}}ById: builder.query({
+      query: (id) => `/{{kebabCase apiName}}/${id}`,
+    }),
+    create{{pascalCase apiName}}: builder.mutation({
+      query: (data) => ({
+        url: '/{{kebabCase apiName}}',
+        method: 'POST',
+        body: data,
+      }),
+    }),
+    update{{pascalCase apiName}}: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/{{kebabCase apiName}}/${id}`,
+        method: 'PUT',
+        body: data,
+      }),
+    }),
+    delete{{pascalCase apiName}}: builder.mutation({
+      query: (id) => ({
+        url: `/{{kebabCase apiName}}/${id}`,
+        method: 'DELETE',
+      }),
+    }),
+  }),
+});
+
+export const {
+  useGetAll{{pascalCase apiName}}Query,
+  useGet{{pascalCase apiName}}ByIdQuery,
+  useCreate{{pascalCase apiName}}Mutation,
+  useUpdate{{pascalCase apiName}}Mutation,
+  useDelete{{pascalCase apiName}}Mutation,
+} = {{camelCase apiName}}Api;

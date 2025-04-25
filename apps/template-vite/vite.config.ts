@@ -6,7 +6,10 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@achieve4sure/ui-mui': path.resolve(__dirname, '../../packages/ui-mui/dist'),
+      '@achieve4sure/ui-mui': path.resolve(
+        __dirname,
+        '../../packages/ui-mui/dist',
+      ),
     },
   },
 });

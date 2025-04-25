@@ -1,0 +1,11 @@
+import { DataTypes } from 'sequelize';
+import sequelize from './index';
+
+export const {{pascalCase name}} = sequelize.define('{{camelCase name}}', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  // Add your fields here
+});

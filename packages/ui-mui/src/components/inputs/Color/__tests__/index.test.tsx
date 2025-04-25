@@ -11,7 +11,7 @@ describe('ColorPicker', () => {
         color="#fff"
         onChange={() => {}}
         faceComponent={<span>Color Picker</span>}
-      />
+      />,
     );
     expect(getByText('Color Picker')).toBeInTheDocument();
   });
@@ -23,7 +23,7 @@ describe('ColorPicker', () => {
         color="#fff"
         onChange={() => {}}
         faceComponent={<span>Color Picker</span>}
-      />
+      />,
     );
     const faceComponent = getByText('Color Picker');
     fireEvent.click(faceComponent);
@@ -40,7 +40,7 @@ describe('ColorPicker', () => {
         color="#fff"
         onChange={onChange}
         faceComponent={<span>Color Picker</span>}
-      />
+      />,
     );
     const faceComponent = getByText('Color Picker');
     fireEvent.click(faceComponent);

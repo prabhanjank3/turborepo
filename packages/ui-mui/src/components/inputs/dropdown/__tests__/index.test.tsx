@@ -39,7 +39,7 @@ describe('SelectField', () => {
 
     expect(defaultProps.onChange).toHaveBeenCalledWith(
       'test-select',
-      'option2'
+      'option2',
     );
   });
 
@@ -50,7 +50,7 @@ describe('SelectField', () => {
 
   it('updates value when valueProp changes', () => {
     const { rerender } = render(
-      <SelectField {...defaultProps} value="option1" />
+      <SelectField {...defaultProps} value="option1" />,
     );
     expect(screen.getByDisplayValue('option1')).toBeInTheDocument();
 

@@ -1,6 +1,5 @@
-
 {
-  "extends":"@achieve4sure/config/tsconfig/base.json",
+  "extends": "@achieve4sure/config/tsconfig/base.json",
   "compilerOptions": {
     "skipLibCheck": true,
     "declaration": true,

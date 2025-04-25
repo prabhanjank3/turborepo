@@ -27,7 +27,7 @@ describe('DateFieldInput', () => {
     render(
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateFieldInput {...defaultProps} {...props} />
-      </LocalizationProvider>
+      </LocalizationProvider>,
     );
 
   it('renders the DatePicker with correct label', () => {
